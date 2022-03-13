@@ -1,6 +1,6 @@
 //Server Details
-const serverUrl = "https://0g4wexcx5qtg.usemoralis.com:2053/server";
-const appId = "63I9G4iDTSyWMQg3Xzh4ujTjRO8mkLEBa6CRx2xw";
+const serverUrl = "";//Moralis server URL here
+const appId = "";//Moralis server AppId here
 Moralis.start({ serverUrl, appId });
 
 logincheck = async () => {
