@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>NFT-Trust-Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/fonts/fontawesome5-overrides.min.css?h=2c0fc24b3d3038317dc51c05339856d0"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.min.css?h=8880b1ed99af0f21321cb61dbce9568e"
+    />
+  </head>
+
+  <body>
+    <!-- Start: Navigation Clean -->
+    <nav
+      class="navbar navbar-light navbar-expand-md navigation-clean"
+      style="padding-bottom: 4px"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">NFT Trust Tracker</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" href="#"
+                ><img
+                  id="NetworkImage"
+                  class="Hide"
+                  src="/assets/img/polygon-matic-logo.svg?h=df8b273f4954ddfa733e3dcceda565ff"
+                  width="30"
+                  style="cursor: default"
+              /></a>
+            </li>
+            <li class="nav-item" role="presentation" title="No Active Wallet">
+              <a
+                class="nav-link text-truncate"
+                id="useraddress"
+                href="#"
+                style="width: 180px"
+                title="No Active Wallet"
+                >Connect Wallet👉</a
+              >
+            </li>
+            <li
+              class="nav-item Hide"
+              role="presentation"
+              id="changeNetwork"
+              title="Connect To Matic"
+            >
+              <a
+                class="nav-link text-truncate"
+                href="#"
+                style="width: 150px; color: rgb(221, 39, 27)"
+                >Wrong Network</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link Hide" id="metalogin" href="#"
+                ><img
+                  src="/assets/img/MetaMask_Fox.svg?h=046e37d3b07eef4db2dc236f23a91c43"
+                  width="30"
+              /></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="sollogin" href="#"
+                ><img
+                  src="/assets/img/solana-sol-logo.svg?h=3227fb0036b9160c6c1579b307ba1ce2"
+                  width="30"
+              /></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link Hide" id="wclogin" href="#"
+                ><img
+                  src="/assets/img/walletconnect-circle-blue.svg?h=4914c2e151a82bf6f9b61f4472052f73"
+                  width="30"
+              /></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link Hide" id="logout" href="#"
+                ><i
+                  class="fa fa-sign-out"
+                  style="font-size: 30px; color: rgb(217, 202, 201)"
+                ></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End: Navigation Clean -->
+    <section id="dAppBody" style="min-height: 80vh">
+      <!-- Start: Search Input Responsive with Icon -->
+      <div
+        class="row d-sm-flex justify-content-sm-center align-items-sm-center"
+        style="margin-right: 0"
+      >
+        <div
+          class="col-md-10 offset-md-1"
+          style="padding-right: 0; padding-left: 0; width: 99vw"
+        >
+          <div
+            class="card d-sm-flex justify-content-sm-center align-items-sm-center m-auto"
+            style="max-width: 850px; width: 100%"
+          >
+            <div class="card-body" style="width: 75%">
+              <form class="d-flex align-items-center">
+                <i
+                  class="fas fa-search d-none d-sm-block h4 text-body m-0"
+                  style="font-size: 16px"
+                ></i
+                ><input
+                  class="form-control form-control-sm flex-shrink-1 form-control-borderless"
+                  type="search"
+                  id="searchinput"
+                  placeholder="NFT keywords or addresses"
+                  name="searchbar"
+                /><button
+                  class="btn btn-success btn-sm"
+                  id="NFTSearch"
+                  type="button"
+                >
+                  Search
+                </button>
+              </form>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="eth"
+                      name="chain"
+                    /><label class="form-check-label" for="eth">Ethereum</label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="sol"
+                      name="chain"
+                      checked
+                    /><label class="form-check-label" for="sol">Solana</label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="poly"
+                      name="chain"
+                    /><label class="form-check-label" for="poly">Polygon</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End: Search Input Responsive with Icon -->
+      <section id="SearchResults" style="padding: 1em">
+        <div
+          class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 justify-content-sm-center align-items-sm-center"
+          id="data"
+        >
+          <div class="col-sm-4 float-none">
+            <div class="card shadow mb-4" style="width: 100%; height: 100%">
+              <div
+                class="card-header py-3"
+                style="
+                  padding: 0.5em;
+                  padding-top: 0.5em;
+                  padding-bottom: 0.5em;
+                "
+              >
+                <div>
+                  <small class="form-text text-nowrap text-truncate text-muted"
+                    >Sample Data:</small
+                  ><small
+                    class="form-text text-nowrap text-truncate text-muted"
+                    id="ownerAdd"
+                    >FaSNr7e12xWNdXVondE6PPoyZ4dWrtSqe5oyRkfV92gv</small
+                  >
+                </div>
+              </div>
+              <div class="card-body" style="padding: 0.5em">
+                <img
+                  class="img-thumbnail"
+                  src="/assets/img/RandomArt (1).png"
+                  width="auto"
+                  height="auto"
+                />
+              </div>
+              <div
+                class="card-header py-3"
+                style="height: auto; color: rgb(89, 237, 37)"
+              >
+                <div class="row">
+                  <div class="col-11 col-sm-9 col-lg-10">
+                    <div style="font-size: 1em; line-height: 1em">
+                      <small class="form-text text-nowrap text-muted"
+                        >Metadata</small
+                      ><i
+                        class="fa fa-circle"
+                        data-toggle="tooltip"
+                        data-bs-tooltip=""
+                        data-placement="bottom"
+                        id="one"
+                        title="Decentral"
+                        style="color: rgb(41, 237, 37)"
+                      ></i>
+                      <i
+                        class="fa fa-circle"
+                        data-toggle="tooltip"
+                        data-bs-tooltip=""
+                        data-placement="bottom"
+                        id="two"
+                        title="Non-Editable"
+                        style="color: rgb(89, 237, 37); padding: 0.1em"
+                      ></i
+                      ><i
+                        class="fa fa-circle"
+                        data-toggle="tooltip"
+                        data-bs-tooltip=""
+                        data-placement="bottom"
+                        id="three"
+                        title="Editable"
+                        style="padding: 0.1em; color: rgb(237, 229, 37)"
+                      ></i
+                      ><i
+                        class="fa fa-circle"
+                        data-toggle="tooltip"
+                        data-bs-tooltip=""
+                        data-placement="bottom"
+                        id="three"
+                        title="Centralized"
+                        style="padding: 0.1em; color: rgb(237, 37, 73)"
+                      ></i>
+                    </div>
+                  </div>
+                  <div
+                    class="col-1 col-sm-2 d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center"
+                  >
+                    <a
+                      href="https://solanart.io/user/[NFTaddressjere]"
+                      target="_blank"
+                      ><i
+                        class="fa fa-external-link"
+                        data-toggle="tooltip"
+                        data-bs-tooltip=""
+                        style="color: rgb(121, 142, 166); font-weight: bold"
+                        title="Buy on solanart.io "
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- Start: Footer Basic -->
+    <div class="footer-basic" style="padding: 2vh">
+      <footer>
+        <!-- Start: Social Icons -->
+        <!-- <div class="social" style="padding: 1vh">
+          <a href="#"><i class="icon ion-social-twitter"></i></a>
+        </div> -->
+        <!-- End: Social Icons -->
+        <!-- Start: Links -->
+        <!-- <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">About</a></li>
+        </ul> -->
+        <!-- End: Links -->
+        <!-- Start: Copyright -->
+        <p class="copyright" style="margin: 0px">JohnVersus © 2022</p>
+        <!-- End: Copyright -->
+      </footer>
+    </div>
+    <!-- End: Footer Basic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.min.js?h=87a98683d2d7c1551b198849b82b3c25"></script>
+
+    <!-- Magic Begins Here -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis@latest/dist/moralis.js"></script>
+    <!-- <script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script> -->
+    <script src="./solConnect.js"></script>
+    <script src="./evmNFTCheck.js"></script>
+    <script src="./evmNFTWordCheck.js"></script>
+    <script src="./solNFTCheck.js"></script>
+    <script src="./nftSearch.js"></script>
+  </body>
+</html>
